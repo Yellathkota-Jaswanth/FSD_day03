@@ -1,0 +1,29 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+        <script>
+            fetch('https://restcountries.com/v3.1/all')
+    .then(response => response.json())
+    .then(data => {
+        // Filter countries that use US dollars as currency
+        const countriesWithUSD = data.filter(country => {
+            return country.currencies && country.currencies.USD;
+        });
+
+        // Print the name of countries that use US dollars as currency
+        if (countriesWithUSD.length > 0) {
+            console.log("Countries that use US dollars as currency:");
+            countriesWithUSD.forEach(country => {
+                console.log(country.name.common);
+            });
+        } else {
+            console.log("No countries found that use US dollars as currency.");
+        }
+    })
+    .catch(error => console.log('Error fetching data:', error));
+
+        </script>
+    </body>
+</html>
