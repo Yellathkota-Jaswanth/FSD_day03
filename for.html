@@ -1,0 +1,22 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+        <script>
+            fetch('https://restcountries.com/v3.1/all')
+    .then(response => response.json())
+    .then(data => {
+        // Iterate over each country and print details
+        data.forEach(country => {
+            console.log("Name:", country.name.common);
+            console.log("Capital:", country.capital[0]); // Assuming capital is an array, printing the first element
+            console.log("Flag:", country.flags.png); // Assuming flags is an object with PNG URL
+            console.log("----------------------------------");
+        });
+    })
+    .catch(error => console.log('Error fetching data:', error));
+
+        </script>
+    </body>
+</html>
