@@ -1,0 +1,22 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+        <script>
+            fetch('https://restcountries.com/v3.1/all')
+    .then(response => response.json())
+    .then(data => {
+        // Filter countries from Asia continent/region
+        const asianCountries = data.filter(country => country.region === 'Asia');
+
+        // Print the names of Asian countries
+        asianCountries.forEach(country => {
+            console.log(country.name.common);
+        });
+    })
+    .catch(error => console.log('Error fetching data:', error));
+
+        </script>
+    </body>
+</html>
