@@ -1,0 +1,21 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+        <script>
+            const base_fair=2.5;
+            const minute_rate=0.3;
+            const per_km_rate=1.5;   
+            
+            class Price{
+                constructor(time,distance){
+                    this.time=time;
+                    this.distance=distance;
+                }
+            }
+            const p1=new Price(5,5);
+            console.log(base_fair+(p1.time*minute_rate)+(p1.distance*per_km_rate))
+            </script>
+    </body>
+</html>
