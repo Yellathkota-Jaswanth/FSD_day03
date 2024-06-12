@@ -1,0 +1,22 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+        <script>
+            fetch('https://restcountries.com/v3.1/all')
+    .then(response => response.json())
+    .then(data => {
+        // Calculate total population using reduce method
+        const totalPopulation = data.reduce((accumulator, country) => {
+            // Add the population of each country to the accumulator
+            return accumulator + country.population;
+        }, 0); // Initial value of accumulator is 0
+
+        console.log("Total population of all countries:", totalPopulation);
+    })
+    .catch(error => console.log('Error fetching data:', error));
+
+        </script>
+    </body>
+</html>
