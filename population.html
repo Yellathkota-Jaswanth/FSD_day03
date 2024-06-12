@@ -1,0 +1,25 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+        <script>
+          fetch('https://restcountries.com/v3.1/all')
+    .then(response => response.json())
+    .then(data => {
+        // Filter countries with a population of less than 200,000
+        const countriesWithLessPopulation = data.filter(country => {
+            // Check if population is less than 200,000
+            return country.population < 200000;
+        });
+
+        // Print the names of countries with less population
+        countriesWithLessPopulation.forEach(country => {
+            console.log(country.name.common);
+        });
+    })
+    .catch(error => console.log('Error fetching data:', error));
+
+        </script>
+    </body>
+</html>
